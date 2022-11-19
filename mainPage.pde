@@ -73,7 +73,7 @@ class MainPageManager{
 
 
     void mouseClicked(){
-
+        
 
     }
 

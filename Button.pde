@@ -3,6 +3,7 @@ class Button {
     int textSize = 36;
     boolean active = true;
     String text;
+    boolean selected = false;
 
 
     Button(int xPos, int yPos, int w, int h, int red, int green, int blue, String txt){
@@ -24,12 +25,13 @@ class Button {
     }
 
     void draw(){
+        int alpha = this.mouseOver() ? 100 : 255;
         push();
         if (active){
-            fill(r,g,b);
+            fill(r,g,b,alpha);
             textAlign(CENTER);
             rect(x,y,buttonWidth,buttonHeight);
-            fill(txtR,txtG,txtB);
+            fill(txtR,txtG,txtB,alpha);
             textSize(textSize);
             text(text,x + buttonWidth/2,y+ buttonHeight/2);
         }
@@ -60,9 +62,16 @@ class Button {
         txtB = textB;
     }
 
+    void setColour(int r, int g, int b){
+        this.r = r;
+        this.g = g;
+        this.b = b;
+    }
+
     boolean mouseOver(){
         return ((mouseX > x && mouseX < x+buttonWidth) && (mouseY > y && mouseY < y+buttonHeight));
     }
+
 
 
 
