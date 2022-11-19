@@ -1,17 +1,11 @@
 class MainPageManager{
     PageManager manager;
-    PImage ukImg;
-    Button b;
-    
+    PImage ukImg;    
 
     MainPageManager(PageManager m){
         manager = m;
         ukImg = loadImage("./images/uk2.gif");
         ukImg.resize(ukImg.width*height/ukImg.height,height);
-
-        b = cp5.addButton("Progression Tree").setValue(0).setPosition(100,50).setSize(200,50);
-        
-        
     }
 
     void draw(){
@@ -22,7 +16,8 @@ class MainPageManager{
         translate(width - 350,10);
         fill(255,0,0);
         rect(0, 0, 300, height - 20);
-        text("Data", 0, 36);
+        fill(255);
+        text("Data", 10, 36);
         pop();
 
         push();
@@ -30,8 +25,8 @@ class MainPageManager{
         
         fill(0,255,0);
         rect(0, 0, 300, height - 20);
-
-        text("Actions", 0, 36);
+        fill(255);
+        text("Actions", 10, 36);
         pop();
 
         
@@ -39,12 +34,10 @@ class MainPageManager{
 
     }
 
-    void controlEvent(ControlEvent theEvent){
-        String name = theEvent.getController().getName();
 
-        if (name.equals("Progression Tree")){
-            println("Progression Tree");
-        }
+
+    void mouseClicked(){
+
 
     }
 

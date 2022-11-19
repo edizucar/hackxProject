@@ -14,9 +14,9 @@ class PageManager {
         }
     }
 
-    void controlEvent(ControlEvent theEvent){
+    void mouseClicked(){
         if (page.equals("main")){
-            mpm.controlEvent(theEvent);
+            mpm.mouseClicked();
         }
     }
 
