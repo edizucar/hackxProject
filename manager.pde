@@ -1,7 +1,7 @@
 class PageManager {
     MainPageManager mpm;
     SurveillancePageManager spm;
-    //ActionPageManager apm;
+    ActionPageManager apm;
     String page;
     Button mapButton, surveilButton, actionButton;
     int tabsHeight = 100;
@@ -9,7 +9,7 @@ class PageManager {
         page = "map";
         mpm = new MainPageManager(this);
         spm = new SurveillancePageManager(this);
-        //apm = new ActionPageManager(this);
+        apm = new ActionPageManager(this);
 
         mapButton = new Button(0,0,width/3,tabsHeight,200,0,0,"MAP");
         surveilButton = new Button(width/3,0,width/3,tabsHeight,0,0,200,"SURVEILLENCE");
@@ -25,6 +25,9 @@ class PageManager {
         }
         else if (page.equals("surveil")) {
             spm.draw();
+        }
+        else if (page.equals("action")) {
+            apm.draw();
         }
 
         //topbar
@@ -62,6 +65,7 @@ class PageManager {
             }
         }
         if (page.equals("action")){
+            apm.mouseClicked();
             if (mapButton.mouseOver()){
                 page = "map";
                 actionButton.setColour(0,0,200);
