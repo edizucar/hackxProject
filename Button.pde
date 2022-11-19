@@ -1,5 +1,5 @@
 class Button {
-    int x,y,buttonWidth,buttonHeight,r,g,b;
+    int x,y,buttonWidth,buttonHeight,r,g,b, txtR, txtG, txtB;
     int textSize = 36;
     boolean active = true;
     String text;
@@ -16,6 +16,10 @@ class Button {
         g = green;
         b = blue;
         text = txt;
+
+        txtR = 255;
+        txtG = 255;
+        txtB = 255;
         
     }
 
@@ -25,6 +29,8 @@ class Button {
             fill(r,g,b);
             textAlign(CENTER);
             rect(x,y,buttonWidth,buttonHeight);
+            fill(txtR,txtG,txtB);
+            textSize(textSize);
             text(text,x + buttonWidth/2,y+ buttonHeight/2);
         }
         pop();
@@ -46,6 +52,12 @@ class Button {
 
     void setTextSize(int ts){
         textSize = ts;
+    }
+
+    void setTextColour(int textR, int textG, int textB){
+        txtR = textR;
+        txtG = textG;
+        txtB = textB;
     }
 
     boolean mouseOver(){
