@@ -36,11 +36,14 @@ class Button {
             }
             rect(x,y,buttonWidth,buttonHeight);
             fill(txtR,txtG,txtB,alpha);
+            textSize(textSize);
             if (centered){
                 rectMode(CORNER);
+                text(text,x,y);
             }
-            textSize(textSize);
-            text(text,x + buttonWidth/2,y+ buttonHeight/2);
+            else{           
+                text(text,x + buttonWidth/2,y+ buttonHeight/2);
+            }
         }
         pop();
 
