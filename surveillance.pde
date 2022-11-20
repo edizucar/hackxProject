@@ -11,14 +11,14 @@ class SurveillancePageManager{
 
     SurveillancePageManager(PageManager m){
         manager = m;
-        int heightOfButtons = 30;
+        int heightOfButtons = 35;
         int widthOfButtons = 100;
         //int xPos, int yPos, int w, int h, int red, int green, int blue, String txt
-        trafficCameras = new Button(200,tabsHeight+  (height-100)/6 /2,  widthOfButtons, heightOfButtons, 255,0,0, "");
-        cctv = new Button(400,(height-100)/6 /3,  widthOfButtons, heightOfButtons, 255,0,0, "");
-        licensePlate = new Button(400,2*(height-100)/6 /3,  widthOfButtons, heightOfButtons, 255,0,0, "");
-        facialRecog = new Button(600,(height-100)/6 /5,  widthOfButtons, heightOfButtons, 255,0,0, "");
-        drones = new Button(600,2*(height-100)/6 /4,  widthOfButtons, heightOfButtons, 255,0,0, "");
+        trafficCameras = new Button(200,tabsHeight+  (height-100)/6 /2,  widthOfButtons, heightOfButtons, 255,0,0, "Traffic Cameras");
+        cctv = new Button(400,(height-100)/6 /3,  widthOfButtons, heightOfButtons, 255,0,0, "CCTV");
+        licensePlate = new Button(400,2*(height-100)/6 /3,  widthOfButtons, heightOfButtons, 255,0,0, "License Plate\nRecognition");
+        facialRecog = new Button(600,(height-100)/6 /5,  widthOfButtons, heightOfButtons, 255,0,0, "Facial\nRecognition");
+        drones = new Button(600,2*(height-100)/6 /4,  widthOfButtons, heightOfButtons, 255,0,0, "Drones");
     }
 
     //So do I define a tree which is made of buttons 
@@ -82,21 +82,29 @@ class SurveillancePageManager{
         pop();
 
         push();
-
+        line(200,tabsHeight+ sectionNum*heightOfSection+ heightOfSection/2, 400, tabsHeight+sectionNum*heightOfSection+ heightOfSection/3);
+        line(200,tabsHeight+ sectionNum*heightOfSection+ heightOfSection/2, 400 ,tabsHeight+sectionNum*heightOfSection+ heightOfSection*2/3);
         trafficCameras.setCentre();
         trafficCameras.setCoords(200,tabsHeight+ sectionNum*heightOfSection+ heightOfSection/2);
+        trafficCameras.setTextSize(14);
         trafficCameras.draw();
+        line(400, tabsHeight+sectionNum*heightOfSection+ heightOfSection/3, 600,tabsHeight+sectionNum*heightOfSection+ heightOfSection/5);
+        line(400, tabsHeight+sectionNum*heightOfSection+ heightOfSection/3, 600,tabsHeight+sectionNum*heightOfSection+ heightOfSection*3/5);
         cctv.setCentre();
         cctv.setCoords(400, tabsHeight+sectionNum*heightOfSection+ heightOfSection/3);
+        cctv.setTextSize(14);
         cctv.draw();
         licensePlate.setCentre();
         licensePlate.setCoords(400,tabsHeight+sectionNum*heightOfSection+ heightOfSection*2/3);
+        licensePlate.setTextSize(12);
         licensePlate.draw();
         drones.setCentre();
         drones.setCoords(600,tabsHeight+sectionNum*heightOfSection+ heightOfSection/5);
+        drones.setTextSize(14);
         drones.draw();
         facialRecog.setCentre();
-        facialRecog.setCoords(600,tabsHeight+sectionNum*heightOfSection+ heightOfSection/2);
+        facialRecog.setCoords(600,tabsHeight+sectionNum*heightOfSection+ heightOfSection*3/5);
+        facialRecog.setTextSize(12);
         facialRecog.draw();
         rectMode(CORNER);
 
@@ -153,7 +161,7 @@ class SurveillancePageManager{
     }
    void mouseClicked(){
         if (trafficCameras.mouseOver()){
-            println("OMG YOU SO COOL YOU BOUGHT TRAFFIC CAMERAS");
+            println("Traffic cameras are cameras places on roads that can keep track of the rate of traffic, allowing better understanding of how people move around.\nThis will give you an extra 1 location data a turn. Press again to buy.");
         }
 
     }
