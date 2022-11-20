@@ -7,6 +7,7 @@ class MainPageManager{
     Button nextRoundButton;
     ArrayList<Event> events;
     Event currentEvent = null;
+    HashMap<Location,PVector> locHM;
 
 
     MainPageManager(PageManager m){
@@ -15,6 +16,13 @@ class MainPageManager{
         ukImg.resize(ukImg.width*(height-tabsHeight)/ukImg.height,(height-tabsHeight));
         nextRoundButton = new Button(width - 200,height - 100,200,100,255,175,0,"Next Round");
         events = extractAllEvents();
+
+        locHM = new HashMap<Location,PVector>();
+        locHM.put(Location.EDINBURGH,new PVector(300,300));
+        locHM.put(Location.LONDON,new PVector(450,550));
+        locHM.put(Location.BRIGHTON,new PVector(450,600));
+        locHM.put(Location.MANCHESTER,new PVector(400,375));
+        locHM.put(Location.DUBLIN,new PVector(175,475));
         
 
         
@@ -77,7 +85,25 @@ class MainPageManager{
 
             pop();
 
+            //Display Event
+            if (currentEvent != null){
+                PVector loc = locHM.get(currentEvent.location);
+                fill(255,0,255);
+                int radius = 30;
+                circle(loc.x,loc.y,radius);
+                if (sq(mouseX - loc.x) + sq(mouseY-tabsHeight - loc.y) < sq(radius)){
+                    fill(50);
+                    rect(loc.x,loc.y,300,100);
+                    fill(255);
+                    textSize(18);
+                    text(currentEvent.title,loc.x,loc.y + 36);
+                    text(currentEvent.description,loc.x,loc.y + 72);
+                }
+            }
+
         pop();
+
+        
 
         nextRoundButton.draw();
     }
@@ -126,7 +152,7 @@ class MainPageManager{
                 return e;
             }
         }
-        return events.get(0);
+        return events.get(int(random(events.size())));
     }
 
 }
