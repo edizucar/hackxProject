@@ -1,14 +1,32 @@
 class ActionPageManager{
     PageManager manager;
     ArrayList<Action> actions;
+    ArrayList<BetterButton> buttons;
+
+    int buttonWidth = 350;
+    int buttonHeight = 50;
+
+
 
     ActionPageManager(PageManager manager){
         this.manager = manager;
         actions = new ArrayList<Action>();
+        buttons = new ArrayList<BetterButton>();
+        readActions();
+        int yCoord = 200;
+        for(Action action: actions) {
+            BetterButton button = new BetterButton(100, yCoord, buttonWidth, buttonHeight, 100, 0, 0, action.name, 10);
+            buttons.add(button);
+            yCoord += (buttonHeight + 10);
+        }
     }
 
     void draw(){
-        background(52);
+        background(255);
+        for(BetterButton button: buttons) {
+            button.draw();
+        }
+
 
     }
 
