@@ -3,7 +3,8 @@ class SurveillancePageManager{
     PImage ukImg;    
     int tabsHeight = 100;
     int sideBarWidth = 400;
-    int ld = 10, sc = 10, pi = 10, roundNum=1;
+
+    int trafficClickedNum =0;
     
 
 
@@ -160,8 +161,15 @@ class SurveillancePageManager{
 
     }
    void mouseClicked(){
-        if (trafficCameras.mouseOver()){
+        
+        if (trafficCameras.mouseOver() && trafficClickedNum ==0){
             println("Traffic cameras are cameras places on roads that can keep track of the rate of traffic, allowing better understanding of how people move around.\nThis will give you an extra 1 location data a turn. Press again to buy.");
+            trafficClickedNum++;
+        }
+        else if (trafficCameras.mouseOver() && trafficClickedNum ==1){
+            println("Traffic cameras purchased.");
+            rLD++;
+            trafficClickedNum++;
         }
 
     }
