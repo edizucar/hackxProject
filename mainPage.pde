@@ -3,7 +3,6 @@ class MainPageManager{
     PImage ukImg;
     int tabsHeight = 100;
     int sideBarWidth = 400;
-    int ld = 10, sc = 10, pi = 10;
     Button nextRoundButton;
     ArrayList<Event> events;
     Event currentEvent = null;
