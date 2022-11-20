@@ -6,7 +6,7 @@ class ActionPageManager{
     int tabsHeight = 100;
     int sideBarWidth = 400;
 
-    int buttonWidth = 350;
+    int buttonWidth = 380;
     int buttonHeight = 50;
 
     int listYStart = 200;
@@ -20,7 +20,7 @@ class ActionPageManager{
         readActions();
         int yCoord = listYStart;
         for(Action action: actions) {
-            BetterButton button = new BetterButton(100, yCoord, buttonWidth, buttonHeight, 100, 0, 0, action.name, 12, action.ldCost, action.scCost, action.piCost);
+            BetterButton button = new BetterButton(100, yCoord, buttonWidth, buttonHeight, 100, 0, 0, action.name, 18, action.ldCost, action.scCost, action.piCost);
             buttons.add(button);
             yCoord += (buttonHeight + 40);
         }
@@ -127,7 +127,6 @@ class ActionPageManager{
                 Action action = new Action();
                 action.extractString(line);
                 actions.add(action);
-                println(action.ldCost);
             }
             reader.close();
         }
