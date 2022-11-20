@@ -119,6 +119,10 @@ class MainPageManager{
             println(currentEvent.location);
             println(currentEvent.type);
             println("");
+
+            ld += rLD;
+            sc += rSC;
+            pi += rPI;
             
         }
 
