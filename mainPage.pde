@@ -92,7 +92,8 @@ class MainPageManager{
                 circle(loc.x,loc.y,radius);
                 if (sq(mouseX - loc.x) + sq(mouseY-tabsHeight - loc.y) < sq(radius)){
                     fill(50);
-                    rect(loc.x,loc.y,300,100);
+                    int l = currentEvent.description.length();
+                    rect(loc.x,loc.y,8*l + 15,100);
                     fill(255);
                     textSize(18);
                     text(currentEvent.title,loc.x,loc.y + 36);
@@ -116,6 +117,7 @@ class MainPageManager{
             println(roundNum);
             println(currentEvent.title);
             println(currentEvent.location);
+            println(currentEvent.type);
             println("");
             
         }

@@ -1,1 +1,10 @@
-title,description,type
+Arson Attack!,A hospital has been set on fire by unknown terrorist group who seems to be protesting against expensive.,NS-
+Gunshot sounds? Firework sounds?,Police misinterprets gunshot sounds as fireworks leaving 23-man massacre unnoticed.,NS-
+Failed raid,Intelligent forces failed in a raid against a well-known drug house.,NS-
+Murder,Man kidnapped and killed for not repaying his debt; murderer still on the run.,NS-
+Protests,Tax protests starting with no end date in sight.,PH-
+Lego House, Previously homeless man built lego house and attracts tourists’ attention.,PH+ 
+New Record!,Man breaks national record of visiting every underground railway station 5 times within a day.,PH+
+Entertainment,Comedian boycotted for having weird opinions towards children,PH+
+Protests,Protests outside Parliament Building complains against government’s ‘abominable’ decisions regarding latest extreme surveillance laws.,SC+
+Privacy Concerns,Trending social media posts with hashtag #whereismyprivacy surging and fills up all top 10 posts of the week.,SC+
