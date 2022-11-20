@@ -4,7 +4,8 @@ class SurveillancePageManager{
     int tabsHeight = 100;
     int sideBarWidth = 400;
 
-    int trafficClickedNum =0;
+    String clickedLast ="";
+    int amountClicked=0;
     
 
 
@@ -111,6 +112,7 @@ class SurveillancePageManager{
 
         pop();
 
+
         
         sectionNum++;
 
@@ -158,18 +160,35 @@ class SurveillancePageManager{
         text("Internet Usage",0.5, 36);
         pop();
        
+         if(trafficCameras.mouseOver()){
+            push();
+            translate(200,tabsHeight+ 0*heightOfSection+ heightOfSection/2);
+            fill(255,255,255);
+            rect(0,0, 400,100);
+            fill(0,0,0);
+            textSize(10);
+            text("Traffic cameras are cameras places on roads that can keep track of the rate of traffic,\n allowing better understanding of how people move around.\nThis will give you an extra 1 location data a turn.",0,10);
+            pop();
+        }
 
     }
    void mouseClicked(){
         
-        if (trafficCameras.mouseOver() && trafficClickedNum ==0){
-            println("Traffic cameras are cameras places on roads that can keep track of the rate of traffic, allowing better understanding of how people move around.\nThis will give you an extra 1 location data a turn. Press again to buy.");
-            trafficClickedNum++;
-        }
-        else if (trafficCameras.mouseOver() && trafficClickedNum ==1){
-            println("Traffic cameras purchased.");
+        if (trafficCameras.mouseOver() && clickedLast!="tCameras"){
+            clickedLast = "tCameras";
+            amountClicked = 1;
             rLD++;
-            trafficClickedNum++;
+            push();
+            translate(200,100);
+            fill(0,255,0);
+            rect(0,0, 400,100);
+            fill(255,255,255);
+            textSize(20);
+            text("Purchased!",0,10);
+            pop();
+        }
+        else if (trafficCameras.mouseOver() && clickedLast=="tCameras" && amountClicked ==1){
+            amountClicked++;
         }
 
     }
