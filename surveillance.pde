@@ -178,7 +178,7 @@ class SurveillancePageManager{
 
         if(cctv.mouseOver()){
             push();
-            translate(200,tabsHeight+ 0*heightOfSection+ heightOfSection/2);
+            translate(400, tabsHeight+0*heightOfSection+ heightOfSection/3);
             fill(255,255,255);
             rect(0,0, 400,100);
             fill(0,0,0);
@@ -189,7 +189,7 @@ class SurveillancePageManager{
 
         if(facialRecog.mouseOver()){
             push();
-            translate(200,tabsHeight+ 0*heightOfSection+ heightOfSection/2);
+            translate(600,tabsHeight+0*heightOfSection+ heightOfSection*3/5);
             fill(255,255,255);
             rect(0,0, 400,100);
             fill(0,0,0);
@@ -200,7 +200,7 @@ class SurveillancePageManager{
 
         if(licensePlate.mouseOver()){
             push();
-            translate(200,tabsHeight+ 0*heightOfSection+ heightOfSection/2);
+            translate(400,tabsHeight+0*heightOfSection+ heightOfSection*2/3);
             fill(255,255,255);
             rect(0,0, 400,100);
             fill(0,0,0);
@@ -211,7 +211,7 @@ class SurveillancePageManager{
 
         if(drones.mouseOver()){
             push();
-            translate(200,tabsHeight+ 0*heightOfSection+ heightOfSection/2);
+            translate(600,tabsHeight+0*heightOfSection+ heightOfSection/5);
             fill(255,255,255);
             rect(0,0, 400,100);
             fill(0,0,0);
