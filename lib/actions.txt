@@ -1,1 +1,3 @@
-New Digital Tax Introduction ( based on internet usage and location), 8, 0, 8, -10, +5, 0
+Search for suspicious individuals,4,4,4,+2,-2,-2
+New Digital Tax Introduction,6,6,6,-10,+8,-6
+Introduce retina scans at Airports,0,0,8,-1,+4,+2

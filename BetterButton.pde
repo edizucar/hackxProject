@@ -1,11 +1,11 @@
 class BetterButton {
-    int x,y,buttonWidth,buttonHeight,r,g,b, txtR, txtG, txtB, textSize, textWidth;
+    int x,y,buttonWidth,buttonHeight,r,g,b, txtR, txtG, txtB, textSize, textWidth, ld, sc, pi;
     boolean active = true;
     String text;
     boolean selected = false;
 
 
-    BetterButton(int xPos, int yPos, int w, int h, int red, int green, int blue, String txt, int textSize){
+    BetterButton(int xPos, int yPos, int w, int h, int red, int green, int blue, String txt, int textSize, int l, int s, int p){
         x = xPos;
         y = yPos;
 
@@ -22,6 +22,9 @@ class BetterButton {
         txtB = 255;
         
         this.textSize = textSize;
+        ld = l;
+        sc = s;
+        pi = p;
     }
 
 
