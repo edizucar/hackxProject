@@ -6,7 +6,7 @@ class ActionPageManager{
     int tabsHeight = 100;
     int sideBarWidth = 400;
 
-    int buttonWidth = 350;
+    int buttonWidth = 380;
     int buttonHeight = 50;
 
     int listYStart = 200;
@@ -127,7 +127,6 @@ class ActionPageManager{
                 Action action = new Action();
                 action.extractString(line);
                 actions.add(action);
-                println(action.ldCost);
             }
             reader.close();
         }
