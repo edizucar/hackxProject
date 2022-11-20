@@ -6,6 +6,9 @@ class SurveillancePageManager{
 
     String clickedLast ="";
     int amountClicked=0;
+    boolean tCamerasBought = false;
+    boolean cctvBought = false;
+    boolean facialRecogBought = false;
     
 
 
@@ -171,24 +174,51 @@ class SurveillancePageManager{
             pop();
         }
 
+        if(cctv.mouseOver()){
+            push();
+            translate(200,tabsHeight+ 0*heightOfSection+ heightOfSection/2);
+            fill(255,255,255);
+            rect(0,0, 400,100);
+            fill(0,0,0);
+            textSize(10);
+            text("CCTV cameras can constantly record videos of different locations,\nallowing you to see who was in a place at a particular time\nThis will give you 1 location data and 1 social connections data",0,10);
+            pop();
+        }
+
+        if(facialRecog.mouseOver()){
+            push();
+            translate(200,tabsHeight+ 0*heightOfSection+ heightOfSection/2);
+            fill(255,255,255);
+            rect(0,0, 400,100);
+            fill(0,0,0);
+            textSize(10);
+            text("Facial recognition software in CCTV allows the owner of the cameras to immediately\nsearch all stored videos for the appearance of a person.\nThis will give you 2 location data, 1 social connections data and 1 personal interests data.",0,10);
+            pop();
+        }
+
     }
    void mouseClicked(){
         
-        if (trafficCameras.mouseOver() && clickedLast!="tCameras"){
-            clickedLast = "tCameras";
-            amountClicked = 1;
+        if (trafficCameras.mouseOver() && !tCamerasBought){
+            tCamerasBought = true;
+            trafficCameras.setColour(0,140,0);
             rLD++;
-            push();
-            translate(200,100);
-            fill(0,255,0);
-            rect(0,0, 400,100);
-            fill(255,255,255);
-            textSize(20);
-            text("Purchased!",0,10);
-            pop();
         }
-        else if (trafficCameras.mouseOver() && clickedLast=="tCameras" && amountClicked ==1){
-            amountClicked++;
+
+        if (cctv.mouseOver() && !cctvBought && tCamerasBought){
+            cctvBought = true;
+            cctv.setColour(0,140,0);
+            rLD++;
+            rSC++;
+        }
+
+        if (facialRecog.mouseOver() && cctvBought  && !facialRecogBought){
+            facialRecogBought = true;
+            facialRecog.setColour(0,140,0);
+            rLD++;
+            rLD++;
+            rSC++;
+            rPI++;
         }
 
     }
