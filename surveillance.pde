@@ -9,6 +9,8 @@ class SurveillancePageManager{
     boolean tCamerasBought = false;
     boolean cctvBought = false;
     boolean facialRecogBought = false;
+    boolean licensePlateBought= false;
+    boolean dronesBought = false;
     
 
 
@@ -181,7 +183,7 @@ class SurveillancePageManager{
             rect(0,0, 400,100);
             fill(0,0,0);
             textSize(10);
-            text("CCTV cameras can constantly record videos of different locations,\nallowing you to see who was in a place at a particular time\nThis will give you 1 location data and 1 social connections data",0,10);
+            text("CCTV cameras can constantly record videos of different locations,\nallowing you to see who was in a place at a particular time.\nThis will give you 1 location data and 1 social connections data",0,10);
             pop();
         }
 
@@ -193,6 +195,28 @@ class SurveillancePageManager{
             fill(0,0,0);
             textSize(10);
             text("Facial recognition software in CCTV allows the owner of the cameras to immediately\nsearch all stored videos for the appearance of a person.\nThis will give you 2 location data, 1 social connections data and 1 personal interests data.",0,10);
+            pop();
+        }
+
+        if(licensePlate.mouseOver()){
+            push();
+            translate(200,tabsHeight+ 0*heightOfSection+ heightOfSection/2);
+            fill(255,255,255);
+            rect(0,0, 400,100);
+            fill(0,0,0);
+            textSize(10);
+            text("License plate recognition allows you to track a particular car and how it moves a country.\nThis allows for finer tracking of vehicles.\nThis will give you 2 location data and 1 social connections data.",0,10);
+            pop();
+        }
+
+        if(drones.mouseOver()){
+            push();
+            translate(200,tabsHeight+ 0*heightOfSection+ heightOfSection/2);
+            fill(255,255,255);
+            rect(0,0, 400,100);
+            fill(0,0,0);
+            textSize(10);
+            text("Drones with CCTV images allows you to dynamically move the cameras you control.\nThis allows you to track anywhere you want at any time. \nThis will give you 2 location data and 1 social connections data.",0,10);
             pop();
         }
 
@@ -219,6 +243,22 @@ class SurveillancePageManager{
             rLD++;
             rSC++;
             rPI++;
+        }
+
+        if (licensePlate.mouseOver() && tCamerasBought  && !licensePlateBought){
+            licensePlateBought = true;
+            licensePlate.setColour(0,140,0);
+            rLD++;
+            rLD++;
+            rSC++;
+        }
+
+        if (drones.mouseOver() && cctvBought  && !dronesBought){
+            dronesBought = true;
+            drones.setColour(0,140,0);
+            rLD++;
+            rLD++;
+            rSC++;
         }
 
     }
