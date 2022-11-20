@@ -4,6 +4,7 @@ class Button {
     boolean active = true;
     String text;
     boolean selected = false;
+    boolean centered = false;
 
 
     Button(int xPos, int yPos, int w, int h, int red, int green, int blue, String txt){
@@ -30,8 +31,14 @@ class Button {
         if (active){
             fill(r,g,b,alpha);
             textAlign(CENTER);
+            if (centered){
+                rectMode(CENTER);
+            }
             rect(x,y,buttonWidth,buttonHeight);
             fill(txtR,txtG,txtB,alpha);
+            if (centered){
+                rectMode(CORNER);
+            }
             textSize(textSize);
             text(text,x + buttonWidth/2,y+ buttonHeight/2);
         }
@@ -68,8 +75,22 @@ class Button {
         this.b = b;
     }
 
+    void setCoords(int newX,int newY){
+        x = newX;
+        y = newY;
+    }
+
+    void setCentre(){
+        centered = true;
+    }
+
     boolean mouseOver(){
-        return ((mouseX > x && mouseX < x+buttonWidth) && (mouseY > y && mouseY < y+buttonHeight));
+        if (centered == true){
+            return ((mouseX > (x-buttonWidth/2) && mouseX < (x+buttonWidth/2)) && (mouseY > (y-buttonHeight/2) && mouseY < (y+buttonHeight/2)));
+        }
+        else{
+            return ((mouseX > x && mouseX < x+buttonWidth) && (mouseY > y && mouseY < y+buttonHeight));
+        }
     }
 
 

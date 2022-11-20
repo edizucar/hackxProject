@@ -53,6 +53,7 @@ class PageManager {
             }
         }
         if (page.equals("surveil")){
+            spm.mouseClicked();
             if (mapButton.mouseOver()){
                 page = "map";
                 surveilButton.setColour(0,0,200);
