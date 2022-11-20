@@ -4,15 +4,25 @@ class MainPageManager{
     int tabsHeight = 100;
     int sideBarWidth = 400;
     int ld = 10, sc = 10, pi = 10;
+    Button nextRoundButton;
+    ArrayList<Event> events;
+    Event currentEvent = null;
+
 
     MainPageManager(PageManager m){
         manager = m;
         ukImg = loadImage("./images/uk2.gif");
         ukImg.resize(ukImg.width*(height-tabsHeight)/ukImg.height,(height-tabsHeight));
+        nextRoundButton = new Button(width - 200,height - 100,200,100,255,175,0,"Next Round");
+        events = extractAllEvents();
+        
+
+        
+
+
     }
 
     void draw(){
-        int roundNum = 1;
         background(50);
 
         
@@ -50,7 +60,7 @@ class MainPageManager{
             // Text:
             fill(255);
             text("Information Points",10,36);
-            text("Round Number: " + str(roundNum),10,600);
+            text("Round Number: " + str(roundNum),10,550);
 
             // Counts
             int pointValyOffset = 65;
@@ -68,13 +78,55 @@ class MainPageManager{
             pop();
 
         pop();
+
+        nextRoundButton.draw();
     }
 
 
 
     void mouseClicked(){
-        
+        if (nextRoundButton.mouseOver()){
+            roundNum++;
+            currentEvent = this.getNextEvent();
+            println(roundNum);
+            println(currentEvent.title);
+            println(currentEvent.location);
+            println("");
+            
+        }
 
+    }
+
+    private Event getNextEvent(){
+        int dPH = abs(personalHappiness);
+        int dSC = abs(securityConcern);
+        int dNS = abs(nationalSecurity);
+        EventType metric = EventType.PHH;
+
+        if (dPH > dSC){
+            if (dPH > dNS){
+                metric = personalHappiness < 0 ? EventType.PHL : EventType.PHH;
+            }
+            else{
+                metric = nationalSecurity < 0 ? EventType.NSL : EventType.NSH;
+            }
+        }
+        else{
+            if (dSC > dNS){
+                metric = securityConcern < 0 ? EventType.SCL : EventType.SCH;
+            }
+            else{
+                metric = nationalSecurity < 0 ? EventType.NSL : EventType.NSH;
+            }
+        }
+
+        
+        for (Event e : events){
+            if (e.type == metric) {
+                return e;
+            }
+        }
+        return events.get(0);
     }
 
 }
