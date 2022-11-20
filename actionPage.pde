@@ -20,7 +20,7 @@ class ActionPageManager{
         readActions();
         int yCoord = listYStart;
         for(Action action: actions) {
-            BetterButton button = new BetterButton(100, yCoord, buttonWidth, buttonHeight, 100, 0, 0, action.name, 12, action.ldCost, action.scCost, action.piCost);
+            BetterButton button = new BetterButton(100, yCoord, buttonWidth, buttonHeight, 100, 0, 0, action.name, 18, action.ldCost, action.scCost, action.piCost);
             buttons.add(button);
             yCoord += (buttonHeight + 40);
         }

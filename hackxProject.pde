@@ -9,9 +9,9 @@ boolean canBuySurveil = true;
 int personalHappiness = 0;
 int securityConcern = 0;
 int nationalSecurity = 0;
-int ld = 0,rLD = 0;
-int sc = 0, rSC = 0;
-int pi = 0, rPI = 0;
+int ld = 15,rLD = 0;
+int sc = 20, rSC = 0;
+int pi = 13, rPI = 0;
 
 PFont font;
 
